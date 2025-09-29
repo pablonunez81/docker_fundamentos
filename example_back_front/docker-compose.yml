@@ -1,0 +1,17 @@
+services:
+  backend:
+    image: pablonunez81/example_back_front_backend:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+  frontend:
+    image: pablonunez81/example_back_front_frontend:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    depends_on:
+      - backend
